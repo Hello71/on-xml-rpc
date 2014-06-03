@@ -1,0 +1,4 @@
+[xml_rpc]
+user = hello71
+password = badpassword
+server = http://opennebula.org:2633

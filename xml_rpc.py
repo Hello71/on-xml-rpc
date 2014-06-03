@@ -15,21 +15,6 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-# This is a simple XML-RPC console for OpenNebula. It uses xmlrpc.client
-# (through six) and code.InteractiveInterpreter to provide a simple interface to
-# OpenNebula's XML-RPC interface.
-# example: one.vmpool.info(-2, -1, -1)
-# This shows all VMs that the user has VM:USE access to.
-# All this does over a simple proxy and code.interact is that this injects
-# one_auth and proxy. so that the above can be used instead of:
-# c.i example: proxy.one.vmpool.info(one_auth, -2, -1, -1)
-# xmlrpc-c example: xmlrpc http://server:2633/RPC2 one.vmpool.info $one_auth \
-# i/-2 i/-1 i/-1
-# Clearly, both are unwieldy compared to this solution.
-
-# To use ONProxy from another script, simply import this one and use ONProxy
-# instead of ServerProxy, passing a suitable one_auth.
-
 import six
 from six.moves import configparser, xmlrpc_client
 import readline
