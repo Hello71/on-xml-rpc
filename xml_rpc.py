@@ -29,8 +29,8 @@ class ONProxy(xmlrpc_client.ServerProxy):
         return super().__init__(uri, *args)
 
     def __request(self, methodname, params):
-        if methodname.startswith("one."):
-            params = ('%s:%s' % self.one_auth) + params
+        if methodname.startswith('one.'):
+            params = (self.one_auth,) + params
         return super()._ServerProxy__request(methodname, params)
 
     def __getattr__(self, name):
@@ -81,4 +81,5 @@ if __name__ == "__main__":
     server = sec['server']
 
     proxy = ONProxy(server, "%s:%s" % (user, password))
-    ONConsole().interact(banner="Using server %s as user %s\n(OpenNebula console)" % (server, user))
+    banner = "Using server %s as user %s\n(OpenNebula console)" % (server, user)
+    ONConsole().interact(banner=banner)
